@@ -17,7 +17,7 @@ public class EmployeeService {
     public static void executeApp() {
         List<Employee> employees = getAllEmployees();
 
-        filterBySpeciality(employees, Position.MANAGER).forEach(System.out::println);
+        filterByPosition(employees, Position.MANAGER).forEach(System.out::println);
         sortEmployeesByFullNameAsc(employees).forEach(System.out::println);
         sortEmployeesByFullNameDesc(employees).forEach(System.out::println);
         System.out.println(getEmployeeWithMaxSalary(employees));
@@ -27,7 +27,7 @@ public class EmployeeService {
         System.out.println(anyDevOps(employees));
     }
 
-    private static List<Employee> filterBySpeciality(List<Employee> employees, Position position) {
+    private static List<Employee> filterByPosition(List<Employee> employees, Position position) {
         return employees.stream()
                 .filter(employee -> employee.getPosition().equals(position))
                 .collect(Collectors.toList());
